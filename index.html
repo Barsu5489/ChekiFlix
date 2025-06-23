@@ -47,7 +47,14 @@
             <h1 class="text-2xl font-poppins font-bold gradient-text">
                 <i class="fas fa-film mr-2"></i>CineVault
             </h1>
-
+            <nav class="hidden md:flex space-x-6">
+                <button onclick="showView('home')" class="nav-btn text-white hover:text-primary transition-colors">Home</button>
+                <button onclick="showView('movies')" class="nav-btn text-white hover:text-primary transition-colors">Movies</button>
+                <button onclick="showView('tv')" class="nav-btn text-white hover:text-primary transition-colors">TV Shows</button>
+                <button onclick="showView('watchlist')" class="nav-btn text-white hover:text-primary transition-colors">
+                    <i class="fas fa-bookmark mr-1"></i>Watchlist
+                </button>
+            </nav>
             <div class="flex items-center space-x-4">
                 <div class="relative">
                     <input
