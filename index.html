@@ -42,7 +42,82 @@
 <body class="bg-dark-100 text-white font-inter">
     <!-- Background Particles -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    <header class="fixed top-0 left-0 w-full bg-dark-200/80 backdrop-blur-md border-b border-dark-400 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-poppins font-bold gradient-text">
+                <i class="fas fa-film mr-2"></i>CineVault
+            </h1>
+            <nav class="hidden md:flex space-x-6">
+                <button onclick="showView('home')" class="nav-btn text-white hover:text-primary transition-colors">Home</button>
+                <button onclick="showView('movies')" class="nav-btn text-white hover:text-primary transition-colors">Movies</button>
+                <button onclick="showView('tv')" class="nav-btn text-white hover:text-primary transition-colors">TV Shows</button>
+                <button onclick="showView('watchlist')" class="nav-btn text-white hover:text-primary transition-colors">
+                    <i class="fas fa-bookmark mr-1"></i>Watchlist
+                </button>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search movies & TV shows..."
+                        class="bg-dark-300 text-white px-4 py-2 pl-10 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    >
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-dark-500"></i>
+                </div>
+                <button id="themeToggle" class="p-2 rounded-full bg-dark-300 hover:bg-dark-400 transition-colors">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <script src="app.js"></script>
+    <!-- Main Content -->
+    <main class="pt-20 min-h-screen">
+            <div id="homeView" class="view">
+            <!-- Hero Section -->
+            <section id="heroSection" class="relative h-96 md:h-[600px] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-dark-100 via-dark-100/50 to-transparent z-10"></div>
+                <div class="absolute inset-0 flex items-center justify-start p-8 md:p-16 z-20">
+                    <div class="max-w-2xl">
+                        <h2 id="heroTitle" class="text-4xl md:text-6xl font-poppins font-bold mb-4 animate-slide-up"></h2>
+                        <p id="heroOverview" class="text-lg md:text-xl text-gray-300 mb-6 animate-slide-up"></p>
+                        <div class="flex space-x-4 animate-slide-up">
+                            <button onclick="playTrailer()" class="bg-primary text-black px-6 py-3 rounded-full font-semibold hover:bg-primary/80 transition-all">
+                                <i class="fas fa-play mr-2"></i>Watch Trailer
+                            </button>
+                            <button onclick="toggleWatchlist()" class="bg-dark-300 text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-400 transition-all">
+                                <i class="fas fa-bookmark mr-2"></i>Add to Watchlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trending Section -->
+            <section class="py-12 px-4">
+                <div class="container mx-auto">
+                    <h3 class="text-3xl font-poppins font-bold mb-8 text-center gradient-text">Trending Now</h3>
+                    <div id="trendingMovies" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Popular Movies -->
+            <section class="py-12 px-4 bg-dark-200">
+                <div class="container mx-auto">
+                    <h3 class="text-3xl font-poppins font-bold mb-8 text-center">Popular Movies</h3>
+                    <div id="popularMovies" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- Top Rated TV Shows -->
+            <section class="py-12 px-4">
+                <div class="container mx-auto">
+                    <h3 class="text-3xl font-poppins font-bold mb-8 text-center">Top Rated TV Shows</h3>
+                    <div id="topRatedTV" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
+                </div>
+            </section>
+        </div>
+        </main>
 </body>
 </html>
