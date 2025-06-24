@@ -27,3 +27,8 @@ function displayHeroContent(movie) {
     heroOverview.textContent = movie.overview;
 }
 
+function toggleWatchlist() {
+    if (currentHeroMovie) {
+        toggleWatchlistItem(currentHeroMovie);
+    }
+}
