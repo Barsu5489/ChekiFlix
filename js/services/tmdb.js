@@ -21,3 +21,46 @@ async function loadGenres() {
     }
 }
 
+// Populate genre filter
+function populateGenreFilter(filterId, genres) {
+    const filter = document.getElementById(filterId);
+    if (!filter) return;
+    
+    filter.innerHTML = '<option value="">All Genres</option>';
+    genres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre.id;
+        option.textContent = genre.name;
+        filter.appendChild(option);
+    });
+}
+
+// Load trending movies
+async function loadTrendingMovies() {
+    console.log('Loading trending movies...');
+    const data = await fetchFromTMDB('/trending/movie/week');
+    
+    if (data && data.results) {
+        displayMovies('trendingMovies', data.results.slice(0, 12));
+    }
+}
+
+// Load popular movies
+async function loadPopularMovies() {
+    console.log('Loading popular movies...');
+    const data = await fetchFromTMDB('/movie/popular');
+    
+    if (data && data.results) {
+        displayMovies('popularMovies', data.results.slice(0, 12));
+    }
+}
+
+// Load top rated TV shows
+async function loadTopRatedTV() {
+    console.log('Loading top rated TV shows...');
+    const data = await fetchFromTMDB('/tv/top_rated');
+    
+    if (data && data.results) {
+        displayMovies('topRatedTV', data.results.slice(0, 12));
+    }
+}
