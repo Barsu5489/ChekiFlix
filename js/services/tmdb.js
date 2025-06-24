@@ -34,3 +34,16 @@ function populateGenreFilter(filterId, genres) {
         filter.appendChild(option);
     });
 }
+
+// Load trending movies
+async function loadTrendingMovies() {
+    console.log('Loading trending movies...');
+    const data = await fetchFromTMDB('/trending/movie/week');
+    
+    if (data && data.results) {
+        displayMovies('trendingMovies', data.results.slice(0, 12));
+    }
+}
+
+
+
