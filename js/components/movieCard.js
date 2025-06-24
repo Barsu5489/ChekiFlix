@@ -38,3 +38,16 @@ function createMovieCard(movie) {
     return card;
 }
 
+// Display movies in grid
+function displayMovies(containerId, movies) {
+    console.log(`Displaying ${movies.length} items in ${containerId}`);
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    movies.forEach(movie => {
+        const movieCard = createMovieCard(movie);
+        container.appendChild(movieCard);
+    });
+}
