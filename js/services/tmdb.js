@@ -45,5 +45,13 @@ async function loadTrendingMovies() {
     }
 }
 
-
+// Load popular movies
+async function loadPopularMovies() {
+    console.log('Loading popular movies...');
+    const data = await fetchFromTMDB('/movie/popular');
+    
+    if (data && data.results) {
+        displayMovies('popularMovies', data.results.slice(0, 12));
+    }
+}
 
