@@ -55,3 +55,12 @@ async function loadPopularMovies() {
     }
 }
 
+// Load top rated TV shows
+async function loadTopRatedTV() {
+    console.log('Loading top rated TV shows...');
+    const data = await fetchFromTMDB('/tv/top_rated');
+    
+    if (data && data.results) {
+        displayMovies('topRatedTV', data.results.slice(0, 12));
+    }
+}
