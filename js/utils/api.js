@@ -1,5 +1,6 @@
 // API functions
 async function fetchFromTMDB(endpoint) {
+    console.log('Fetching from TMDB:', endpoint);
     try {
         const response = await fetch(`${TMDB_BASE_URL}${endpoint}`, {
             headers: {
