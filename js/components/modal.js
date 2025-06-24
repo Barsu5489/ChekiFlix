@@ -180,3 +180,23 @@ function closeModal() {
     modal.classList.add('hidden');
     document.body.style.overflow = 'auto';
 }
+
+// Play trailer
+function playTrailer(videoKey) {
+    if (videoKey) {
+        console.log('Playing trailer:', videoKey);
+        window.open(`https://www.youtube.com/watch?v=${videoKey}`, '_blank');
+    } else if (currentHeroMovie) {
+        // If no specific key, try to find trailer for hero movie
+        fetchFromTMDB(`/movie/${currentHeroMovie.id}/videos`).then(data => {
+            if (data && data.results) {
+                const trailer = data.results.find(v => v.type === 'Trailer' && v.site === 'YouTube');
+                if (trailer) {
+                    window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank');
+                } else {
+                    showToast('Trailer not available');
+                }
+            }
+        });
+    }
+}
