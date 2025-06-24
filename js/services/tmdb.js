@@ -21,3 +21,16 @@ async function loadGenres() {
     }
 }
 
+// Populate genre filter
+function populateGenreFilter(filterId, genres) {
+    const filter = document.getElementById(filterId);
+    if (!filter) return;
+    
+    filter.innerHTML = '<option value="">All Genres</option>';
+    genres.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre.id;
+        option.textContent = genre.name;
+        filter.appendChild(option);
+    });
+}
