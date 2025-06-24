@@ -173,3 +173,10 @@ function createModalContent(movie, credits, videos, mediaType) {
     `;
 }
 
+// Close modal
+function closeModal() {
+    console.log('Closing modal');
+    const modal = document.getElementById('movieModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
