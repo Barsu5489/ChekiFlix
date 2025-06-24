@@ -6,6 +6,7 @@ function isInWatchlist(id) {
 }
 
 function toggleWatchlistItem(movie) {
+    console.log('Toggling watchlist for:', movie.title || movie.name);
     const index = watchlist.findIndex(item => item.id === movie.id);
     
     if (index === -1) {
