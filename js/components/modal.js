@@ -53,11 +53,11 @@ function createModalContent(movie, credits, videos, mediaType) {
     
     return `
         <div class="relative">
-            <div class="h-96 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${backdropUrl})">
+            <div class="h-96 bg-cover bg-center relative" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${backdropUrl})">
                 <div class="absolute inset-0 flex items-end p-8">
                     <div class="flex space-x-6">
-                        <img src="${posterUrl}" alt="${movie.title || movie.name}" class="w-32 h-48 object-cover rounded-lg">
-                        <div class="flex-1">
+  
+                        <div class="flex-1 ">
                             <h2 class="text-4xl font-poppins font-bold mb-2">${movie.title || movie.name}</h2>
                             <div class="flex items-center space-x-4 mb-4">
                                 <span class="bg-primary text-black px-3 py-1 rounded-full font-semibold">
