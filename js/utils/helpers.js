@@ -8,3 +8,15 @@ function showLoading(show) {
     }
 }
 
+function showToast(message) {
+    console.log('Toast:', message);
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    toastMessage.textContent = message;
+    toast.classList.remove('translate-x-full');
+    
+    setTimeout(() => {
+        toast.classList.add('translate-x-full');
+    }, 3000);
+}
